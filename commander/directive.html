@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+
+<zdc-directive></zdc-directive>
+<div zdc-directive></div>
+<!--<div class="zdc-directive"></div>-->
+<!-- directive: zdc-directive -->
+<script>
+    var app=angular.module('myApp',[]);
+    app.directive('zdcDirective',function () {
+        return {
+//            restrict:"C",//可用作类名
+
+//            restrict:"M",//可用作注释
+//            replace : true,//可用作注释
+
+            template:"<p>zdc command</p>"
+        }
+    })
+</script>
+
+</body>
+</html>
