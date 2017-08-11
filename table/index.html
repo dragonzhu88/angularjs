@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-app="myapp" ng-controller="customCtrl">
+    <table>
+        <tr ng-repeat="x in names| orderBy : 'age'">
+            <td style="{{$even?'background-color: #CCC':''}}">{{$index + 1}}</td>
+            <td style="{{$even?'background-color: #CCC':''}}">{{x.name}}</td>
+            <td style="{{$even?'background-color: #CCC':''}}">{{x.age}}</td>
+        </tr>
+    </table>
+</div>
+
+
+<script>
+    var app = angular.module('myapp', [])
+    app.controller('customCtrl', function ($scope, $http) {
+        $http.get('test.php').then(
+            function (result) {
+                console.log(result.data)
+                $scope.names = result.data.rows
+            }
+        )
+    })
+</script>
+</body>
+</html>
