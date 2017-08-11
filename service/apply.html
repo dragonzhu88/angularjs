@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myapp" ng-controller="myctrl">
+<script>
+    var app = angular.module('myapp', [])
+    app.controller('myctrl', function ($scope) {
+        $scope.theTime = new Date().toLocaleDateString()
+        $scope.setTime = function () {
+            $scope.$apply(function () {
+                $scope.theTime = new Date().toLocaleDateString()
+            })
+        }
+        setInterval($scope.setTime, 1000)
+    })
+</script>
+</body>
+</html>

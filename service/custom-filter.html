@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>custom-filter</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myapp">
+    在过滤器中使用服务:
+    <h1>{{255 | myFilter}}</h1>
+</div>
+
+<script>
+   var app = angular.module('myapp',[]);
+   app.service('my_service',function () {
+       this.showName = function (name) {
+           return 'zdc' + name
+       }
+   })
+   app.filter('myFilter',['my_service',function (my_service) {
+       return function(x) {
+           return my_service.showName(x);
+       };
+   }])
+</script>
+</body>
+</html>

@@ -11,17 +11,23 @@
 <!--<div class="zdc-directive"></div>-->
 <!-- directive: zdc-directive -->
 <script>
-    var app=angular.module('myApp',[]);
-    app.directive('zdcDirective',function () {
+    var app = angular.module('myApp', []);
+    app.directive('zdcDirective', function () {
         return {
 //            restrict:"C",//可用作类名
-
 //            restrict:"M",//可用作注释
 //            replace : true,//可用作注释
 
-            template:"<p>zdc command</p>"
+            template: "<p>zdc command</p>"
         }
-    })
+    }).directive()
+    {
+        scope: true,
+        restrict:'AE',
+        template:'second name:{{name}}
+    }
+
+
 </script>
 
 </body>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="../angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="myctrl">
+    <select ng-model="selection" ng-options="x.name for x in sites">
+    </select>
+
+    {{selection.name}} -- {{selection.url}} -- {{lastName}}
+</div>
+
+<script>
+    var app = angular.module('myApp',[]);
+    app.controller('myctrl',function ($scope, $rootScope) {
+        $scope.sites = [
+            {name:'baidu',url:"www.baidu.com"},
+            {name:'sogou',url:"www.sogou.com"}
+        ]
+        $rootScope.lastName = 'zdc'
+    });
+</script>
+
+</body>
+</html>

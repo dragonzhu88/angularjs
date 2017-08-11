@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>custom</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
 </head>
 <body>
-
+<div ng-app="myapp" ng-controller="myctrl">
+    <p>
+        {{username}}
+    </p>
+</div>
+<script>
+    var app = angular.module('myapp', []);
+    app.service('my_service', function () {
+        this.my_show = function (usrname) {
+            return 'zdc' + usrname
+        }
+    })
+    app.controller('myctrl', function ($scope, my_service) {
+        $scope.username = my_service.my_show('123456');
+    })
+</script>
 </body>
 </html>
