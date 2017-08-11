@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
 </head>
 <body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+    <select ng-model="site">
+        <option ng-repeat="x in sites" value="{{x.url}}">{{x.site}}</option>
+    </select>
+    {{site}}
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.sites = [
+            {site : "Google", url : "http://www.google.com"},
+            {site : "Runoob", url : "http://www.runoob.com"},
+            {site : "Taobao", url : "http://www.taobao.com"}
+        ];
+    });
+</script>
+
+<p>该实例演示了使用 ng-repeat 指令来创建下拉列表。</p>
 
 </body>
 </html>
